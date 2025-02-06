@@ -20,3 +20,10 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+#diretorrio do ambiente virtal
+venv/
+.venv/
+.venv
+.env
+/.env

@@ -1,0 +1,15 @@
+langchain==0.0.295          
+openai==0.27.9                    
+fastapi==0.103.0           
+uvicorn==0.23.2  
+gunicorn==21.2.0          
+pandas==2.1.2            
+jsonschema==4.19.0       
+python-dotenv==1.0.0   
+requests==2.31.0
+lxml
+Jinja2==3.1.2
+scikit-learn
+fastapi-session==0.2.7
+
+

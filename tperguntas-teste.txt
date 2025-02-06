@@ -1,0 +1,66 @@
+**Teste Vocacional - Baseado na Teoria de Holland (RIASEC)**
+
+**Instruções:** Leia atentamente cada afirmação abaixo e avalie seu grau de afinidade com ela. Marque a opção que melhor representa sua opinião.
+
+**Escala de Respostas:**  
+- 1 - Discordo totalmente  
+- 2 - Discordo parcialmente  
+- 3 - Neutro  
+- 4 - Concordo parcialmente  
+- 5 - Concordo totalmente  
+
+**Seção 1: Realista (R)**  
+1. Prefiro atividades que envolvam o uso de ferramentas, máquinas ou equipamentos.  
+2. Gosto de trabalhar ao ar livre e realizar tarefas físicas.  
+3. Tenho interesse por trabalhos manuais, como consertar ou montar objetos.  
+4. Prefiro atividades práticas a atividades teóricas.  
+5. Trabalhar com animais ou na natureza me agrada.  
+
+**Seção 2: Investigativo (I)**  
+6. Gosto de resolver problemas complexos e desafiadores.  
+7. Tenho curiosidade por temas científicos e tecnológicos.  
+8. Prefiro trabalhos que exigem análise e pesquisa.  
+9. Busco entender o funcionamento das coisas ao meu redor.  
+10. Gosto de estudar assuntos profundos e abstratos.  
+
+**Seção 3: Artístico (A)**  
+11. Tenho interesse por atividades criativas como desenhar, pintar ou escrever.  
+12. Prefiro ambientes de trabalho flexíveis e sem rotina fixa.  
+13. Expressar emoções por meio da arte é importante para mim.  
+14. Valorizo a originalidade e a liberdade de expressão.  
+15. Gosto de criar coisas novas e inovadoras.  
+
+**Seção 4: Social (S)**  
+16. Gosto de ajudar as pessoas e oferecer suporte emocional.  
+17. Prefiro atividades que envolvem ensinar ou treinar outras pessoas.  
+18. Trabalho bem em equipe e me preocupo com o bem-estar dos outros.  
+19. Gosto de interagir com diferentes tipos de pessoas.  
+20. Tenho facilidade para compreender e lidar com os sentimentos alheios.  
+
+**Seção 5: Empreendedor (E)**  
+21. Gosto de liderar grupos e tomar decisões.  
+22. Tenho facilidade para persuadir e influenciar outras pessoas.  
+23. Prefiro atividades que envolvem desafios e competição.  
+24. Tenho interesse por negócios e empreendedorismo.  
+25. Consigo me adaptar bem a situações dinâmicas e imprevisíveis.  
+
+**Seção 6: Convencional (C)**  
+26. Gosto de tarefas organizadas e bem estruturadas.  
+27. Tenho atenção aos detalhes e gosto de seguir regras.  
+28. Prefiro trabalhos que envolvam registros, planilhas e documentos.  
+29. Sou metódico(a) e gosto de rotina.  
+30. Me sinto confortável em ambientes bem organizados e disciplinados.  
+
+**Cálculo do Resultado:**  
+Para cada uma das seis categorias (R, I, A, S, E, C), some os pontos das respostas correspondentes. O maior valor indica sua área de maior afinidade vocacional.  
+
+**Interpretação:**  
+- **Realista (R):** Preferência por trabalhos práticos, manuais e técnicos.  
+- **Investigativo (I):** Interesse por pesquisa, análise e ciência.  
+- **Artístico (A):** Inclinação para criatividade e expressão pessoal.  
+- **Social (S):** Preferência por interação e ajuda ao próximo.  
+- **Empreendedor (E):** Habilidade para liderar, persuadir e inovar.  
+- **Convencional (C):** Interesse por organização, estrutura e regras.  
+
+Este teste fornece uma direção inicial para a escolha de uma carreira, mas não substitui uma orientação profissional especializada.
+

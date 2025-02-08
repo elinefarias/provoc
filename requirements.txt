@@ -11,5 +11,7 @@ lxml
 Jinja2==3.1.2
 scikit-learn
 fastapi-session==0.2.7
+PyPDF2
+python-multipart
 
 

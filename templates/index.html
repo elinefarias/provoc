@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Vocacional - Teoria de Holland (RIASEC)</title>
+<style>
+    .selected {
+      background-color: #ff69b4; /* Cor de fundo para a resposta selecionada */
+      border-radius: 50%; /* Torna o fundo arredondado */
+    }
+    
+    .logo-large {
+      width: auto;
+      height: 120px;
+    }
+
+    .chatbot-img {
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid pink;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+      z-index: 100; /* Camada bem acima */
+    }
+    .chatbot-img-questionnaire {
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid pink;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+      z-index: 100; /* Camada bem acima */
+      margin-top: -200px;
+      
+    }
+    #questionnaire {
+      display: flex;
+      align-items: center; /* opcional, para alinhar verticalmente */
+      justify-content: center; /* opcional, para alinhar horizontalmente */
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .question {
+      margin-bottom: 15px;
+      
+    }
+
+    #questionnaire .text-question {
+      position: relative;
+      background: #CD4B87; /* Degradê com mais cores */
+      padding: 15px 20px;
+      border-radius: 10px;
+      width: 600px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+      color:#f4f4f9;
+      font-family: 'Georgia', serif; /* Fonte diferente */
+      font-weight: bold; /* Texto em negrito */
+    }
+
+    #questionnaire {
+      align-items: center;
+    }
+
+     #questionnaire p {
+      margin: 5px;
+      text-align: center;
+    }
+
+    .scale {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      align-items: center;
+    }
+
+    .scale span {
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+
+    .button-principal {
+      display: block;
+      width: 30%;
+      padding: 10px;
+      background-color:  #CD4B87;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 auto;
+      
+    }
+    .button-principal:hover {
+      background-color:  #ff69b4;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+   .navigation {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .navigation button {
+      background: none;
+      border: none;
+      font-size: 2em;
+      cursor: pointer;
+      color:  #CD4B87;
+      pointer-events: all;
+      display: flex;
+      width: 10px;
+    }
+
+  .navigation button:hover {
+    color: #ff69b4;
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <img src="/assets/logo3.png" alt='Logo' class='logo-large'>
+    <h1>Consultoria de carreira</h1>
+    <p>Teste Vocacional baseado na Teoria de Holland (RIASEC)</p>
+  </header>
+  <main>
+    <div id="step1">
+      <h2>
+      <img src="\assets\chatbot.jpg" alt="Chatbot" class="chatbot-img">
+      Olá! Meu trabalho é te ajudar a encontrar o melhor caminho para o seu sucesso profissional.</h2>
+      <p>Me conta, qual é o seu momento de formação?</p>
+      <div class="form-group">
+        <label for="nome">Nome e Sobrenome:</label>
+        <input type="text" id="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="escolaridade">Nível de Escolaridade:</label>
+        <select id="escolaridade" required>
+          <option value="">Selecione</option>
+          <option value="fundamental">Cursando o Ensino Fundamental</option>
+          <option value="medio"> Cursando o Ensino Médio 1º ano</option>
+          <option value="medio"> Cursando o Ensino Médio 2º ano</option>
+          <option value="medio"> Cursando o Ensino Médio 3º ano</option>
+          <option value="medio">Concluí o Ensino Médio</option>
+          <option value="medio">Fazendo Cursinho Pré Vestibular</option>
+          <option value="superior"> CUrsando o Ensino Superior ou Técnico</option>
+          <option value="superior">Iniciei o Ensino Superior e parei</option>
+          <option value="superior">Concluí o Ensino Superior</option>
+          <option value="superior"> Cursando Pós Graduação</option>
+          <option value="superior">Concluí Pós Pós Graduação</option>
+        </select>
+      </div>
+      <button class = "button-principal" onclick="goToStep2()">Iniciar Questionário</button>
+    </div>
+
+    <div id="step2" class="hidden">
+      <div id="questionnaire">
+          <img src="assets/chatbot.jpg" alt="Chatbot" class="chatbot-img-questionnaire">
+          <!-- Pergunta 01 -->
+          <div class="question" id="question1">
+                <p class ="text-question">Prefiro atividades que envolvam o uso de ferramentas, máquinas ou equipamentos.</p>
+                <div class="scale">
+                  <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+                    </div>
+                  </div>
+          </div>
+
+          <!-- Pergunta 02 -->
+          <div class="question hidden" id="question2">
+                <p class="text-question">Gosto de trabalhar ao ar livre e realizar tarefas físicas.</p>
+                <div class="scale">
+                  <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+                    </div>
+                    <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 03 -->
+          <div class="question hidden" id="question3">
+            <p class="text-question">Gosto de resolver problemas complexos e desafiadores.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Pergunta 04 -->
+          <div class="question hidden" id="question4">
+            <p class="text-question">Tenho curiosidade por temas científicos e tecnológicos.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 05 -->
+          <div class="question hidden" id="question5">
+            <p class="text-question">Tenho interesse por atividades criativas como desenhar, pintar ou escrever.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 06 -->
+          <div class="question hidden" id="question6">
+            <p class="text-question">Prefiro ambientes de trabalho flexíveis e sem rotina fixa.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 07 -->
+          <div class="question hidden" id="question7">
+            <p class="text-question">Gosto de ajudar as pessoas e oferecer suporte emocional.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 08 -->
+          <div class="question hidden" id="question8">
+            <p class="text-question">Prefiro atividades que envolvem ensinar ou treinar outras pessoas.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 09 -->
+          <div class="question hidden" id="question9">
+            <p class="text-question">Gosto de liderar grupos e tomar decisões.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 10 -->
+          <div class="question hidden" id="question10">
+            <p class="text-question">Tenho facilidade para persuadir e influenciar outras pessoas.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 11 -->
+          <div class="question hidden" id="question11">
+            <p class="text-question">Gosto de tarefas organizadas e bem estruturadas.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 12 -->
+          <div class="question hidden" id="question12">
+            <p class="text-question">Tenho atenção aos detalhes e gosto de seguir regras.</p>
+            <div class="scale">
+              <div>
+                <span onclick="selectAnswer(this, 1)" style="display: block; text-align: center;font-size: 3em;">😡</span>
+                <p>Discordo totalmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 2)" style="display: block; text-align: center;font-size: 3em;">🙁</span>
+                <p>Discordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 3)" style="display: block; text-align: center;font-size: 3em;">😐</span>
+                <p>Neutro</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 4)" style="display: block; text-align: center;font-size: 3em;">🙂</span>
+                <p>Concordo parcialmente</p>
+              </div>
+              <div>
+                <span onclick="selectAnswer(this, 5)" style="display: block; text-align: center;font-size: 3em;">😃</span>
+                <p>Concordo totalmente</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <div class="navigation">
+        <button onclick="prevQuestion()">&#9664;</button>
+        <button onclick="nextQuestion()">&#9654;</button>
+      </div>
+      <button class = "button-principal" onclick="submitQuestionnaire()">Enviar Respostas</button>
+    </div>
+  </main>
+
+  <script>
+    let currentQuestion = 1;
+    const totalQuestions = 12;
+  
+    function goToStep2() {
+      const nome = document.getElementById('nome').value;
+      const escolaridade = document.getElementById('escolaridade').value;
+      if (nome && escolaridade) {
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
+    }
+  
+    function showQuestion(questionNumber) {
+      for (let i = 1; i <= totalQuestions; i++) {
+        document.getElementById('question' + i).classList.add('hidden');
+      }
+      document.getElementById('question' + questionNumber).classList.remove('hidden');
+    }
+  
+    function nextQuestion() {
+      if (currentQuestion < totalQuestions) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+      }
+    }
+  
+    function prevQuestion() {
+      if (currentQuestion > 1) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+      }
+    }
+  
+    function selectAnswer(element, answerValue) {
+      const questionElement = element.closest('.question');
+      const allAnswers = questionElement.querySelectorAll('.scale span');
+      allAnswers.forEach(answer => {
+        answer.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      questionElement.setAttribute('data-resposta', answerValue);
+    }
+  
+    async function submitQuestionnaire() {
+      const nome = document.getElementById('nome').value;
+      const escolaridade = document.getElementById('escolaridade').value;
+      const respostas = [];
+
+      const questions = document.querySelectorAll('.question');
+      questions.forEach((question, index) => {
+          const questionNumber = index + 1;
+          const selectedAnswer = question.getAttribute('data-resposta');
+          if (selectedAnswer) {
+              respostas.push({ pergunta: questionNumber, resposta: selectedAnswer });
+          }
+      });
+
+      const data = {
+          nome,
+          escolaridade,
+          respostas
+      };
+
+      const saveResponse = await fetch(`/salvar_questionario?nome=${encodeURIComponent(nome)}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      });
+
+      if (saveResponse.ok) {
+          const perfilResponse = await fetch('/calcular_perfil', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+          });
+
+          if (perfilResponse.ok) {
+              const perfilData = await perfilResponse.json();
+              alert(`Seu perfil dominante é: ${perfilData.perfil_dominante.nome} - ${perfilData.perfil_dominante.descricao}`);
+              
+              const prompt = "Por favor, forneça mais informações sobre carreiras adequadas para este perfil.";
+              const agenteResponse = await fetch('/agente_provoc', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ prompt, nome, perfil_dominante: perfilData.perfil_dominante })
+              });
+
+              if (agenteResponse.ok) {
+                  window.location.href = `/relatorio.html?nome=${encodeURIComponent(nome)}`;
+              } else {
+                  alert('Erro ao gerar relatório.');
+              }
+          } else {
+              alert('Erro ao calcular perfil.');
+          }
+      } else {
+          alert('Erro ao enviar questionário.');
+      }
+  }
+  
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      showQuestion(currentQuestion);
+    });
+  </script>
+
+</body>
+</html>

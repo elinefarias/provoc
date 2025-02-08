@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório Vocacional</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1, h2, h3 {
+      color: #333;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .summary {
+      background: #e0f7fa;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .profile-box {
+      background: #ffe0b2;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+    .divider {
+      border-top: 2px solid #ddd;
+      margin: 20px 0;
+    }
+    .graphic-section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .graphic-placeholder {
+      width: 100%;
+      max-width: 600px;
+      height: 150px;
+      background: #ccc;
+      display: inline-block;
+      border-radius: 8px;
+      line-height: 150px;
+      color: #555;
+      font-weight: bold;
+    }
+    .linkedin-section {
+      background: #e3f2fd;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .linkedin-section h3 {
+      color: #1976d2;
+    }
+    .career-map {
+      background: #fce4ec;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .career-map h3 {
+      color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Relatório Vocacional</h1>
+    <p><strong>Nome:</strong> {{ nome }}</p>
+    <p><strong>Data:</strong> {{ data }}</p>
+
+    <div class="section">
+      <h2>Resumo do Perfil</h2>
+      <div class="summary">
+        <p>Seu perfil primário é o <strong>{{ perfil_primario }}</strong>. {{ descricao_primaria }}</p>
+        <p>Seu perfil secundário é o <strong>{{ perfil_secundario }}</strong>. {{ descricao_secundaria }}</p>
+      </div>
+    </div>
+
+    <div class="graphic-section">
+      <div class="graphic-placeholder">[ Espaço para Gráfico ou Imagem ]</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h2>Características do Perfil</h2>
+      <div class="profile-box">
+        <h3>Perfil Empreendedor</h3>
+        <ul>
+          <li>Liderança</li>
+          <li>Empreendedorismo</li>
+          <li>Comunicação</li>
+          <li>Gestão</li>
+        </ul>
+      </div>
+      <div class="profile-box">
+        <h3>Perfil Convencional</h3>
+        <ul>
+          <li>Planejamento</li>
+          <li>Contabilidade</li>
+          <li>Visão Analítica</li>
+          <li>Administração</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="linkedin-section">
+      <h3>Dica para sua Carreira: Utilize o LinkedIn</h3>
+      <p>Quer um lugar melhor para fazer networking do que o LinkedIn? O LinkedIn é muito útil para fortalecer sua presença no mercado de trabalho, principalmente se ainda não tiver nenhuma experiência profissional. Bora começar a movimentar seu perfil ainda hoje!</p>
+      <p><em>“Se você quer ir rápido, vá sozinho. Se quer ir longe, vá acompanhado.”</em> – Provérbio Africano</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="career-map">
+      <h3>Mapa de Carreiras que Combinam com Seu Perfil</h3>
+      <p>Abaixo estão algumas profissões que combinam com o seu perfil. Explore as opções e descubra novas possibilidades!</p>
+      <ul>
+        <li>Administrador de Empresas</li>
+        <li>Especialista em Marketing</li>
+        <li>Consultor de Negócios</li>
+        <li>Auditor Financeiro</li>
+        <li>Analista de Planejamento Estratégico</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Relatório da IA</h2>
+      <div class="summary">
+        <p>{{ report_text }}</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Este relatório foi gerado automaticamente. Para uma análise mais detalhada, consulte um profissional especializado.</p>
+    </div>
+  </div>
+</body>
+</html>

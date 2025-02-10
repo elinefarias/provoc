@@ -7,7 +7,7 @@
 <style>
     .selected {
       background-color: #ff69b4; /* Cor de fundo para a resposta selecionada */
-      border-radius: 50%; /* Torna o fundo arredondado */
+      
     }
     
     .logo-large {
@@ -589,19 +589,22 @@
   
     function selectAnswer(element, answerValue) {
       const questionElement = element.closest('.question');
-      const allAnswers = questionElement.querySelectorAll('.scale span');
+      const allAnswers = questionElement.querySelectorAll('.scale div');
       allAnswers.forEach(answer => {
-        answer.classList.remove('selected');
+          answer.querySelector('span').classList.remove('selected');
       });
       element.classList.add('selected');
-      questionElement.setAttribute('data-resposta', answerValue);
+      const answerText = element.nextElementSibling.textContent.trim();
+      questionElement.setAttribute('data-resposta', answerText);
+
+      nextQuestion();
     }
   
     async function submitQuestionnaire() {
       const nome = document.getElementById('nome').value;
       const escolaridade = document.getElementById('escolaridade').value;
       const respostas = [];
-
+  
       const questions = document.querySelectorAll('.question');
       questions.forEach((question, index) => {
           const questionNumber = index + 1;
@@ -610,13 +613,13 @@
               respostas.push({ pergunta: questionNumber, resposta: selectedAnswer });
           }
       });
-
+  
       const data = {
           nome,
           escolaridade,
           respostas
       };
-
+  
       const saveResponse = await fetch(`/salvar_questionario?nome=${encodeURIComponent(nome)}`, {
           method: 'POST',
           headers: {
@@ -624,7 +627,7 @@
           },
           body: JSON.stringify(data)
       });
-
+  
       if (saveResponse.ok) {
           const perfilResponse = await fetch('/calcular_perfil', {
               method: 'POST',
@@ -633,7 +636,7 @@
               },
               body: JSON.stringify(data)
           });
-
+  
           if (perfilResponse.ok) {
               const perfilData = await perfilResponse.json();
               alert(`Seu perfil dominante é: ${perfilData.perfil_dominante.nome} - ${perfilData.perfil_dominante.descricao}`);
@@ -646,9 +649,24 @@
                   },
                   body: JSON.stringify({ prompt, nome, perfil_dominante: perfilData.perfil_dominante })
               });
-
+  
               if (agenteResponse.ok) {
-                  window.location.href = `/relatorio.html?nome=${encodeURIComponent(nome)}`;
+                  const cursosResponse = await fetch('/recomendar_cursos', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(data)
+                  });
+  
+                  if (cursosResponse.ok) {
+                      const cursosData = await cursosResponse.json();
+                      const cursosRecomendados = cursosData.cursos_recomendados.map(curso => curso.curso).join(',');
+  
+                      window.location.href = `/relatorio.html?nome=${encodeURIComponent(nome)}&perfil_primario=${encodeURIComponent(perfilData.perfil_dominante.nome)}&descricao_primaria=${encodeURIComponent(perfilData.perfil_dominante.descricao)}&cursos_recomendados=${encodeURIComponent(cursosRecomendados)}`;
+                  } else {
+                      alert('Erro ao recomendar cursos.');
+                  }
               } else {
                   alert('Erro ao gerar relatório.');
               }
@@ -659,7 +677,6 @@
           alert('Erro ao enviar questionário.');
       }
   }
-  
   
     document.addEventListener('DOMContentLoaded', () => {
       showQuestion(currentQuestion);

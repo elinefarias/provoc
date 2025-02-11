@@ -17,7 +17,6 @@ import PyPDF2
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import normalize
-import pdfkit
 from fastapi.encoders import jsonable_encoder
 from weasyprint import HTML
 

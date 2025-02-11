@@ -250,7 +250,7 @@ async def recomendar_cursos(response: QuestionnaireResponse):
     })
     return JSONResponse(content=json_data)
 
-
+''' 
 if __name__ == "__main__":
     options = {
         'bind': '{}:{}'.format('0.0.0.0', '8000'),
@@ -259,3 +259,5 @@ if __name__ == "__main__":
         'timeout': 600
     }
     GunicornServer(app, options).run()
+    
+'''
